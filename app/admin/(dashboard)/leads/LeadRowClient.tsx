@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useTransition } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -114,7 +114,6 @@ export function LeadRow({
               value={status}
               onChange={(e) => {
                 const next = e.target.value as LeadStatus;
-
                 setStatus(next);
 
                 startTransition(() => {

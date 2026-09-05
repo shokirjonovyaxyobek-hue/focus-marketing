@@ -1,7 +1,7 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { Toast } from "@/components/admin/Toast";
-import { LeadRow } from "./LeadRow";
+import { LeadRow } from "./LeadRowClient";
 
 export const dynamic = "force-dynamic";
 
@@ -48,3 +48,4 @@ export default async function LeadsPage() {
     </div>
   );
 }
+
