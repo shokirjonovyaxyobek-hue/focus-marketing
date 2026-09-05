@@ -21,7 +21,7 @@ export function Services({ services }: { services: Service[] }) {
   if (services.length === 0) return null;
 
   return (
-    <section id="services" className="py-14 lg:py-20 bg-surface-gray/50">
+    <section id="services" className="py-10 lg:py-14 bg-surface-gray/50">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground text-center">

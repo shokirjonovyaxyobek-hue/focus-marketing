@@ -38,7 +38,7 @@ export function Team({ members }: { members: Member[] }) {
   };
 
   return (
-    <section id="team" className="py-14 lg:py-20 bg-surface-gray/50 overflow-hidden">
+    <section id="team" className="py-10 lg:py-14 bg-surface-gray/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <Reveal>
           <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground text-center">
@@ -46,7 +46,7 @@ export function Team({ members }: { members: Member[] }) {
           </h2>
         </Reveal>
 
-        <div className="relative mt-14 h-[420px] flex items-center justify-center">
+        <div className="relative mt-10 h-[360px] flex items-center justify-center">
           <button
             onClick={() => setIndex((i) => (i - 1 + members.length) % members.length)}
             className="absolute left-0 lg:left-8 z-20 w-10 h-10 rounded-full bg-white border border-border-gray flex items-center justify-center hover:border-focus-red hover:text-focus-red transition-colors"
@@ -75,14 +75,28 @@ export function Team({ members }: { members: Member[] }) {
                     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
+                    {pos === "center" && (
+                      <motion.div
+                        aria-hidden
+                        className="absolute inset-0 m-auto w-56 h-56 rounded-full bg-focus-red/25 blur-3xl -z-10"
+                        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+                        transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    )}
                     <div
-                      className={`w-64 bg-white rounded-3xl p-7 text-center border transition-colors ${
+                      className={`w-64 bg-white rounded-3xl p-6 text-center border transition-colors ${
                         pos === "center"
-                          ? "border-focus-red/25 shadow-[0_20px_50px_rgba(216,31,38,0.12)]"
+                          ? "border-focus-red/30 shadow-[0_24px_60px_rgba(216,31,38,0.18)]"
                           : "border-border-gray"
                       }`}
                     >
-                      <div className="relative w-28 h-28 mx-auto rounded-full overflow-hidden bg-surface-gray border-2 border-white shadow-sm ring-1 ring-border-gray">
+                      <div
+                        className={`relative w-28 h-28 mx-auto rounded-full overflow-hidden bg-surface-gray shadow-sm transition-all ${
+                          pos === "center"
+                            ? "ring-4 ring-focus-red/20 border-2 border-white"
+                            : "ring-1 ring-border-gray border-2 border-white"
+                        }`}
+                      >
                         {member.photo ? (
                           <Image src={member.photo} alt={member.fullName} fill className="object-cover" />
                         ) : (
